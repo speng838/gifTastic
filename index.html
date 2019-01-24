@@ -5,125 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <script src="main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
     <div id = "display"></div>
 
-    <!-- For button (the "for" is where it is stored-->
     <form id="gif-form">
         <label for="gif-input">Add a country: </label>
         <input type="text" id="gif-input">
         <br>
       
-        <input id="add-gif" type="submit" value="Add a country!">
+        <input id="add-gif" type="submit" value="Add a country!" type="button" class="btn btn-warning">
     </form>
 
     <div id = "display2"></div>
    
 
 
-    <script type="text/javascript">
+    <script src = "assets/javascript/gif.js" type="text/javascript"></script>
 
-var topics = ["USA", "China", "Russia", "India"];
-
-
-
-function createButtons() {
-
-    $("#display").empty();
-
-    for(var i = 0; i<topics.length; i++){
-
-        var alpha = $("<button>");
-        
-        alpha.addClass("gif-btn");
-        
-        alpha.attr("data-name", topics[i]);
-        
-        alpha.text(topics[i]);
-
-        $("#display").append(alpha);
-    }   
-}
-
-        $("#add-gif").on("click",function(){
-
-            event.preventDefault();
-
-            var gif = $("#gif-input").val().trim();
-
-            topics.push(gif);
-
-            createButtons();
-        });
-    
-        $(document).on("click", ".gif-btn", displayGifInfo);
-
-      
-        createButtons();
-        
-
-    function displayGifInfo(){
-
-        var gif = $(this).attr("data-name");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=TRBVdoBuLNw4TobIU57vHU84WTSG7IYM";
-
-
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function(response) {
-
-            var results = response.data;
-
-            for (var i = 0; i < 10; i++) {
-            
-            var gifDiv = $("<div class='gif'>");
-
-            var rating = results[i].rating;
-
-            var pOne = $("<p>").text("Rating: " + rating);
-            //=======================================
-            var gifImage = $("<img>");
-
-            gifImage.attr("src", results[i].images.fixed_height.url.replace(".gif","_s.gif"));
-
-            gifImage.attr("data-still", results[i].images.fixed_height.url.replace(".gif","_s.gif"));
-
-            gifImage.attr("data-animate", results[i].images.fixed_height.url);
-
-            gifImage.attr("data-state", "still");
-
-            gifImage.attr("class", "gif");
-            
-            gifDiv.append(gifImage);
-
-            gifDiv.append(pOne);
-
-            $("#display2").prepend(gifDiv);
-           
-            
-            }
-
-            $(".gif").on("click", function() {
-
-                var theState = $(this).attr("data-state"); 
-
-                if (theState === "still") {
-                    $(this).attr("src", $(this).attr("data-animate"));
-                    $(this).attr("data-state", "animate");
-                } else {
-                    $(this).attr("src", $(this).attr("data-still"));
-                    $(this).attr("data-state", "still");
-                }
-            });
-
-
-        });
-    }
-    </script>
 </body>
 </html>

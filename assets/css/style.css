@@ -1,0 +1,20 @@
+#display{
+    background-color: red;
+    color: white;
+    height: 100;
+}
+
+button{
+    margin-left: 50;
+    margin-top: 50;
+}
+
+form{
+    background-color: blue;
+    color: white;
+    height: 100;
+}
+
+input{
+    margin-left: 100;
+}
