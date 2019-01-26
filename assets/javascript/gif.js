@@ -1,6 +1,5 @@
 
-var topics = ["USA", "Thailand", "Brazil", "India"];
-
+var topics = ["USA", "THAILAND", "BRAZIL", "INDIA"];
 
 
 function createButtons() {
@@ -9,6 +8,7 @@ function createButtons() {
 
     for(var i = 0; i<topics.length; i++){
 
+        
         var alpha = $("<button type='button' class='btn btn-warning'>");
         
         alpha.addClass("gif-btn");
@@ -18,18 +18,33 @@ function createButtons() {
         alpha.text(topics[i]);
 
         $("#display").append(alpha);
-    }   
+        
+    }
 }
+      
+
+        var gif;
 
         $("#add-gif").on("click",function(){
 
             event.preventDefault();
 
-            var gif = $("#gif-input").val().trim();
+            gif = $("#gif-input").val().trim();
 
-            topics.push(gif);
+            for(i=0;i<topics.length; i++){
+                topics[i].toUpperCase();
+                var test = gif.toUpperCase();
+                if(topics.includes(test)){
+                    
+                }
+                else{
+                    topics.push(test);
 
-            createButtons();
+                    createButtons();
+                }
+            }
+
+            
         });
     
         $(document).on("click", ".gif-btn", displayGifInfo);
