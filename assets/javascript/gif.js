@@ -1,5 +1,5 @@
 
-var topics = ["USA", "China", "Russia", "India"];
+var topics = ["USA", "Thailand", "Brazil", "India"];
 
 
 
@@ -41,7 +41,7 @@ function createButtons() {
     function displayGifInfo(){
 
         var gif = $(this).attr("data-name");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=TRBVdoBuLNw4TobIU57vHU84WTSG7IYM";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=TRBVdoBuLNw4TobIU57vHU84WTSG7IYM";
 
 
         $.ajax({
