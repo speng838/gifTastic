@@ -1,7 +1,12 @@
+body{
+    
+    background: white url("https://media.giphy.com/media/PBln5fAX5FCpO/giphy.gif");
+}
+
 #display{
-    background-color: red;
-    color: white;
-    height: 100;
+    height: 125;
+    background-color: darkred
+    
 }
 
 button{
@@ -10,9 +15,9 @@ button{
 }
 
 form{
-    background-color: blue;
+    background-color: gold;
     color: white;
-    height: 100;
+    height: 125;
 }
 
 input{

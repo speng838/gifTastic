@@ -1,5 +1,5 @@
 
-var topics = ["USA", "THAILAND", "BRAZIL", "INDIA"];
+var topics = ["IRONMAN", "THOR", "BATMAN", "AQUAMAN"];
 
 
 function createButtons() {
@@ -34,7 +34,7 @@ function createButtons() {
             for(i=0;i<topics.length; i++){
                 topics[i].toUpperCase();
                 var test = gif.toUpperCase();
-                if(topics.includes(test)){
+                if(topics.includes(test)){    //.includes = finds duplicates in array
                     
                 }
                 else{
